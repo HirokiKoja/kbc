@@ -4,7 +4,7 @@
  * 驕会ｽｾ陷ｩ�｡郢ｧ�ｷ郢ｧ�ｹ郢晢ｿｽﾎ定ｭ幢ｽｬ闖ｴ�ｽ */
 
 //update aki0018
-//update serina_k
+//update Serina
 
 
 import javax.swing.*;
