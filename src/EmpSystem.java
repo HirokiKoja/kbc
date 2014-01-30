@@ -1,11 +1,11 @@
-/*陋ｻ�ｶ闖ｴ諛�ｿｽ�ｽ螢ｼ蝠�垈譎�胸髮具ｽｴ
- *陋ｻ�ｶ闖ｴ諛亥ｾ具ｿｽ螟ｲ�ｼ謇假ｽｼ蜻域��ｽ謇假ｽｼ蜈亥ｾ�
+/*髯具ｽｻ�ｽ�ｶ髣厄ｽｴ隲幢ｿｽ�ｿ�ｽ�ｽ�ｽ陞｢�ｼ陜�ｿｽ蝙郁ｭ趣ｿｽ閭ｸ鬮ｮ蜈ｷ�ｽ�ｴ
+ *髯具ｽｻ�ｽ�ｶ髣厄ｽｴ隲帑ｺ･�ｾ蜈ｷ�ｿ�ｽ陞滂ｽｲ�ｽ�ｼ隰�∞�ｽ�ｼ陷ｻ蝓滂ｿｽ�ｽ�ｽ隰�∞�ｽ�ｼ陷井ｺ･�ｾ�ｽ
  * 
- * 驕会ｽｾ陷ｩ�｡郢ｧ�ｷ郢ｧ�ｹ郢晢ｿｽﾎ定ｭ幢ｽｬ闖ｴ�ｽ */
+ * 鬩穂ｼ夲ｽｽ�ｾ髯ｷ�ｩ�ｽ�｡驛｢�ｧ�ｽ�ｷ驛｢�ｧ�ｽ�ｹ驛｢譎｢�ｿ�ｽ�主ｮ夲ｽｭ蟷｢�ｽ�ｬ髣厄ｽｴ�ｽ�ｽ */
 
 //update aki0018
 //update Serina
-
+//update Kadofuji
 
 import javax.swing.*;
 
@@ -34,16 +34,16 @@ public class EmpSystem extends JFrame implements ActionListener {
 	String getEmpName = null, getDeptName = null;
 	static int count;
 	
-	/*郢晢ｽｭ郢ｧ�ｰ郢ｧ�､郢晢ｽｳ郢晢ｿｽ縺冗ｹｧ�ｹ郢晢ｿｽ/
+	/*驛｢譎｢�ｽ�ｭ驛｢�ｧ�ｽ�ｰ驛｢�ｧ�ｽ�､驛｢譎｢�ｽ�ｳ驛｢譎｢�ｿ�ｽ邵ｺ蜀暦ｽｹ�ｧ�ｽ�ｹ驛｢譎｢�ｿ�ｽ/
 	JTextField idText = new JTextField(); 
 //	JTextField passText = new JTextField();
-	JButton loginButton = new JButton("郢晢ｽｭ郢ｧ�ｰ郢ｧ�､郢晢ｽｳ"); 
+	JButton loginButton = new JButton("驛｢譎｢�ｽ�ｭ驛｢�ｧ�ｽ�ｰ驛｢�ｧ�ｽ�､驛｢譎｢�ｽ�ｳ"); 
 	
 	JPasswordField passText = new JPasswordField(20);
 	char[] password = passText.getPassword();
 	String pass = new String(password);
 	
-	/*陷台ｼ∝求郢晢ｿｽ縺冗ｹｧ�ｹ郢晢ｿｽ/
+	/*髯ｷ蜿ｰ�ｼ竏晄ｱるΔ譎｢�ｿ�ｽ邵ｺ蜀暦ｽｹ�ｧ�ｽ�ｹ驛｢譎｢�ｿ�ｽ/
 	JTextField deleteEmpIdText =new JTextField();
 	JTextField deleteEmpNameText = new JTextField();
 	JTextField deleteDeptNameText = new JTextField();
@@ -54,22 +54,22 @@ public class EmpSystem extends JFrame implements ActionListener {
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(200, 150, 640, 480);
-		frame.setTitle("隶�㏍�ｴ�｢邵ｺ�ｪ邵ｺ�ｽ�ｽ�ｽ�ｴ隨ｳ謚ｫ�ｽ郢ｧ譏ｶ豼ｫ遯ｶ�ｽ");
+		frame.setTitle("髫ｶ�ｽ繽搾ｿｽ�ｴ�ｽ�｢驍ｵ�ｺ�ｽ�ｪ驍ｵ�ｺ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｴ髫ｨ�ｳ隰夲ｽｫ�ｽ�ｽ驛｢�ｧ隴擾ｽｶ雎ｼ�ｫ驕ｯ�ｶ�ｽ�ｽ");
 		frame.setVisible(true);
 		frame.setResizable(false);
 	}
 
 	EmpSystem() {
-		/* login騾包ｽｻ鬮ｱ�｢ */
+		/* login鬨ｾ蛹�ｽｽ�ｻ鬯ｮ�ｱ�ｽ�｢ */
 		JPanel loginPanel = new JPanel();
 		loginPanel.setLayout(null);
 
-		JLabel loginTitle = new JLabel("郢晢ｽｭ郢ｧ�ｰ郢ｧ�､郢晢ｽｳ");
-		JLabel loginId = new JLabel("驕会ｽｾ陷ｩ�｡ID");
-		JLabel loginPass = new JLabel("郢昜ｻ｣縺帷ｹ晢ｽｯ郢晢ｽｼ郢晢ｿｽ);
+		JLabel loginTitle = new JLabel("驛｢譎｢�ｽ�ｭ驛｢�ｧ�ｽ�ｰ驛｢�ｧ�ｽ�､驛｢譎｢�ｽ�ｳ");
+		JLabel loginId = new JLabel("鬩穂ｼ夲ｽｽ�ｾ髯ｷ�ｩ�ｽ�｡ID");
+		JLabel loginPass = new JLabel("驛｢譏懶ｽｻ�｣邵ｺ蟶ｷ�ｹ譎｢�ｽ�ｯ驛｢譎｢�ｽ�ｼ驛｢譎｢�ｿ�ｽ);
 	//	JTextField idText = new JTextField(8); 
 	//	JTextField passText = new JTextField(8); 
-	//	JButton loginButton = new JButton("郢晢ｽｭ郢ｧ�ｰ郢ｧ�､郢晢ｽｳ"); 
+	//	JButton loginButton = new JButton("驛｢譎｢�ｽ�ｭ驛｢�ｧ�ｽ�ｰ驛｢�ｧ�ｽ�､驛｢譎｢�ｽ�ｳ"); 
 
 		loginPanel.add(loginTitle);
 		loginPanel.add(loginId);
@@ -88,14 +88,14 @@ public class EmpSystem extends JFrame implements ActionListener {
 		loginButton.addActionListener(this);
 		loginButton.setActionCommand("top");
 		
-		/* TOP騾包ｽｻ鬮ｱ�｢ */
+		/* TOP鬨ｾ蛹�ｽｽ�ｻ鬯ｮ�ｱ�ｽ�｢ */
 		JPanel topPanel = new JPanel();
 		topPanel.setLayout(null);
 
 		JLabel topTitle = new JLabel("TOP");
-		JButton empSearch = new JButton("驕会ｽｾ陷ｩ�｡隶�㏍�ｴ�｢");
-		JButton empAdd = new JButton("驕会ｽｾ陷ｩ�｡髴托ｽｽ陷会ｿｽ);
-		JButton empDelete = new JButton("驕会ｽｾ陷ｩ�｡陷台ｼ∝求");
+		JButton empSearch = new JButton("鬩穂ｼ夲ｽｽ�ｾ髯ｷ�ｩ�ｽ�｡髫ｶ�ｽ繽搾ｿｽ�ｴ�ｽ�｢");
+		JButton empAdd = new JButton("鬩穂ｼ夲ｽｽ�ｾ髯ｷ�ｩ�ｽ�｡鬮ｴ謇假ｽｽ�ｽ髯ｷ莨夲ｽｿ�ｽ);
+		JButton empDelete = new JButton("鬩穂ｼ夲ｽｽ�ｾ髯ｷ�ｩ�ｽ�｡髯ｷ蜿ｰ�ｼ竏晄ｱ�);
 
 		topPanel.add(topTitle);
 		topPanel.add(empSearch);
@@ -114,18 +114,18 @@ public class EmpSystem extends JFrame implements ActionListener {
 		empDelete.addActionListener(this);
 		empDelete.setActionCommand("delete");
 
-		/* 隶�㏍�ｴ�｢ */
+		/* 髫ｶ�ｽ繽搾ｿｽ�ｴ�ｽ�｢ */
 		JPanel searchPanel = new JPanel();
 		searchPanel.setLayout(null);
 
-		JLabel searchTitle = new JLabel("隶�㏍�ｴ�｢");
-		JLabel searchEmpNo = new JLabel("驕会ｽｾ陷ｩ�｡ID");
-		JLabel searchEmpName = new JLabel("驕会ｽｾ陷ｩ�｡陷ｷ�ｽ);
-		JLabel searchDeptName = new JLabel("鬩幢ｽｨ驗ゑｽｲ");
+		JLabel searchTitle = new JLabel("髫ｶ�ｽ繽搾ｿｽ�ｴ�ｽ�｢");
+		JLabel searchEmpNo = new JLabel("鬩穂ｼ夲ｽｽ�ｾ髯ｷ�ｩ�ｽ�｡ID");
+		JLabel searchEmpName = new JLabel("鬩穂ｼ夲ｽｽ�ｾ髯ｷ�ｩ�ｽ�｡髯ｷ�ｷ�ｽ�ｽ);
+		JLabel searchDeptName = new JLabel("鬯ｩ蟷｢�ｽ�ｨ鬩励ｑ�ｽ�ｲ");
 		JTextField searchEmpNoText = new JTextField();
 		JTextField searchEmpNameText = new JTextField();
 		JTextField searchDeptNameText = new JTextField();
-		JButton searchButton = new JButton("隶�㏍�ｴ�｢");
+		JButton searchButton = new JButton("髫ｶ�ｽ繽搾ｿｽ�ｴ�ｽ�｢");
 		JButton searchTopButton = new JButton("TOP");
 
 		searchPanel.add(searchTitle);
@@ -153,26 +153,26 @@ public class EmpSystem extends JFrame implements ActionListener {
 		searchTopButton.addActionListener(this);
 		searchTopButton.setActionCommand("top");
 		
-		/*隶�㏍�ｴ�｢驍ｨ蜈域｣｡髯ｦ�ｨ驕会ｽｺ騾包ｽｻ鬮ｱ�｢*/
+		/*髫ｶ�ｽ繽搾ｿｽ�ｴ�ｽ�｢鬩搾ｽｨ陷亥沺�｣�｡鬮ｯ�ｦ�ｽ�ｨ鬩穂ｼ夲ｽｽ�ｺ鬨ｾ蛹�ｽｽ�ｻ鬯ｮ�ｱ�ｽ�｢*/
 		JPanel searchActionPanel = new JPanel();
 		searchActionPanel.setLayout(null);
 		
 		JButton searchReturnButton = new JButton();
 
-		/* 髴托ｽｽ陷会ｿｽ*/
+		/* 鬮ｴ謇假ｽｽ�ｽ髯ｷ莨夲ｽｿ�ｽ*/
 		JPanel addPanel = new JPanel();
 		addPanel.setLayout(null);
 
-		JLabel addTitle = new JLabel("髴托ｽｽ陷会ｿｽ);
-		JLabel addEmpPass = new JLabel("郢昜ｻ｣縺帷ｹ晢ｽｯ郢晢ｽｼ郢晢ｿｽ);
-		JLabel addEmpNo = new JLabel("驕会ｽｾ陷ｩ�｡ID");
-		JLabel addEmpName = new JLabel("驕会ｽｾ陷ｩ�｡陷ｷ�ｽ);
-		JLabel addDeptName = new JLabel("鬩幢ｽｨ驗ゑｽｲ");
+		JLabel addTitle = new JLabel("鬮ｴ謇假ｽｽ�ｽ髯ｷ莨夲ｽｿ�ｽ);
+		JLabel addEmpPass = new JLabel("驛｢譏懶ｽｻ�｣邵ｺ蟶ｷ�ｹ譎｢�ｽ�ｯ驛｢譎｢�ｽ�ｼ驛｢譎｢�ｿ�ｽ);
+		JLabel addEmpNo = new JLabel("鬩穂ｼ夲ｽｽ�ｾ髯ｷ�ｩ�ｽ�｡ID");
+		JLabel addEmpName = new JLabel("鬩穂ｼ夲ｽｽ�ｾ髯ｷ�ｩ�ｽ�｡髯ｷ�ｷ�ｽ�ｽ);
+		JLabel addDeptName = new JLabel("鬯ｩ蟷｢�ｽ�ｨ鬩励ｑ�ｽ�ｲ");
 		JTextField addEmpNoText = new JTextField();
 		JTextField addEmpNameText = new JTextField();
 		JTextField addDeptNameText = new JTextField();
 		JTextField addEmpPassText = new JTextField();
-		JButton addButton = new JButton("髴托ｽｽ陷会ｿｽ);
+		JButton addButton = new JButton("鬮ｴ謇假ｽｽ�ｽ髯ｷ莨夲ｽｿ�ｽ);
 		JButton addTopButton = new JButton("TOP");
 
 		addPanel.add(addTitle);
@@ -202,18 +202,18 @@ public class EmpSystem extends JFrame implements ActionListener {
 		addTopButton.addActionListener(this);
 		addTopButton.setActionCommand("top");
 
-		/* 陷台ｼ∝求 */
+		/* 髯ｷ蜿ｰ�ｼ竏晄ｱ�*/
 		JPanel deletePanel = new JPanel();
 		deletePanel.setLayout(null);
 
-		JLabel deleteTitle = new JLabel("陷台ｼ∝求");
-		JLabel deleteEmpNo = new JLabel("驕会ｽｾ陷ｩ�｡ID");
-		JLabel deleteEmpName = new JLabel("驕会ｽｾ陷ｩ�｡陷ｷ�ｽ);
-		JLabel deleteDeptName = new JLabel("鬩幢ｽｨ驗ゑｽｲ");
+		JLabel deleteTitle = new JLabel("髯ｷ蜿ｰ�ｼ竏晄ｱ�);
+		JLabel deleteEmpNo = new JLabel("鬩穂ｼ夲ｽｽ�ｾ髯ｷ�ｩ�ｽ�｡ID");
+		JLabel deleteEmpName = new JLabel("鬩穂ｼ夲ｽｽ�ｾ髯ｷ�ｩ�ｽ�｡髯ｷ�ｷ�ｽ�ｽ);
+		JLabel deleteDeptName = new JLabel("鬯ｩ蟷｢�ｽ�ｨ鬩励ｑ�ｽ�ｲ");
 		deleteEmpIdText = new JTextField();
 		deleteEmpNameText = new JTextField();
 		deleteDeptNameText = new JTextField();
-		Button deleteButton = new Button("陷台ｼ∝求");
+		Button deleteButton = new Button("髯ｷ蜿ｰ�ｼ竏晄ｱ�);
 		JButton deleteTopButton = new JButton("TOP");
 
 		deleteTitle.setBounds(60, 40, 80, 30);
@@ -261,14 +261,14 @@ public class EmpSystem extends JFrame implements ActionListener {
 	if(command.equals("search") || command.equals("add") || command.equals("delete")){
 		layout.show(mainPanel, command);
 		
-	}else if(command.equals("top")){//郢晢ｽｭ郢ｧ�ｰ郢ｧ�､郢晢ｽｳ陷�ｽｦ騾�ｿｽ			if(flag == 0){
+	}else if(command.equals("top")){//驛｢譎｢�ｽ�ｭ驛｢�ｧ�ｽ�ｰ驛｢�ｧ�ｽ�､驛｢譎｢�ｽ�ｳ髯ｷ�ｽ�ｽ�ｦ鬨ｾ�ｽ�ｿ�ｽ			if(flag == 0){
 				getId = Integer.parseInt(idText.getText());
 				getPass = Integer.parseInt(passText.getText());
 				try{
 					conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:myorcl","scott","tiger");
 					conn.setAutoCommit(true);
 					Statement stmt = conn.createStatement();
-					ResultSet loginRs = stmt.executeQuery("select * from java_emp where EMPID =邵ｲ�ｽ"+ getId +" and PASSWORD = "+ getPass +" and FLAG =0 " );
+					ResultSet loginRs = stmt.executeQuery("select * from java_emp where EMPID =驍ｵ�ｲ�ｽ�ｽ"+ getId +" and PASSWORD = "+ getPass +" and FLAG =0 " );
 					while(loginRs.next()){
 						getIdAccess = loginRs.getInt("EMPID");
 						getPassAccess = loginRs.getInt("PASSWORD");
@@ -278,33 +278,33 @@ public class EmpSystem extends JFrame implements ActionListener {
 					System.out.println("SQLException:" + e1.getMessage());
 				}
 				if(getId == getIdAccess && getPass == getPassAccess){
-					System.out.print("隰御ｻ咏ｲ･");//陋ｻ�､陞ｳ螢ｹ繝ｦ郢ｧ�ｹ郢晢ｿｽ					flag ++;
+					System.out.print("髫ｰ蠕｡�ｻ蜥擾ｽｲ�･");//髯具ｽｻ�ｽ�､髯橸ｽｳ陞｢�ｹ郢晢ｽｦ驛｢�ｧ�ｽ�ｹ驛｢譎｢�ｿ�ｽ					flag ++;
 					layout.show(mainPanel, command);
 				}
 			}if(flag == 1){
 				layout.show(mainPanel, command);
 			}
-		}else if(command.equals("searchAction")){//隶�㏍�ｴ�｢陷�ｽｦ騾�ｿｽ�ｼ蛹ｻ縺咲ｹ晏ｳｨ��ｹｧ阮吮�闖ｴ諛奇ｽ玖撻�ｴ隰�ｿｽ�ｼ�ｽ		////////////////////////////////////////////////////////////////	
+		}else if(command.equals("searchAction")){//髫ｶ�ｽ繽搾ｿｽ�ｴ�ｽ�｢髯ｷ�ｽ�ｽ�ｦ鬨ｾ�ｽ�ｿ�ｽ�ｽ�ｼ陋ｹ�ｻ邵ｺ蜥ｲ�ｹ譎擾ｽｳ�ｨ�ｽ�ｽ�ｹ�ｧ髦ｮ蜷ｮ�ｽ髣厄ｽｴ隲帛･�ｽｽ邇匁捗�ｽ�ｴ髫ｰ�ｽ�ｿ�ｽ�ｽ�ｼ�ｽ�ｽ		////////////////////////////////////////////////////////////////	
 		}else if(command.equals("addAction")){
 			
 
-		}else if(command.equals("addAction")){//髴托ｽｽ陷会ｿｽ�ｽ騾�ｿｽ			getId = Integer.parseInt(deleteEmpIdText.getText());
+		}else if(command.equals("addAction")){//鬮ｴ謇假ｽｽ�ｽ髯ｷ莨夲ｽｿ�ｽ�ｽ�ｽ鬨ｾ�ｽ�ｿ�ｽ			getId = Integer.parseInt(deleteEmpIdText.getText());
 			getEmpName = deleteEmpNameText.getText();
 			getDeptName = deleteDeptNameText.getText();
-			System.out.print("郢晢ｿｽ縺帷ｹ晁肩�ｼ�ｽ+getId +getEmpName + getDeptName);
+			System.out.print("驛｢譎｢�ｿ�ｽ邵ｺ蟶ｷ�ｹ譎∬か�ｽ�ｼ�ｽ�ｽ+getId +getEmpName + getDeptName);
 			try{
 				conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:myorcl","scott","tiger");
 				conn.setAutoCommit(false);
 				Statement stmt = conn.createStatement();
 				int deleteRs = stmt.executeUpdate("update java_emp set FLAG = 1 where EMPID = "
-					+ getId +" and EMPNAME = '"+ getEmpName +"' and DEPTNAME邵ｲ�ｽ '" + getDeptName +"' and FLAG = 0" );
-				int option = JOptionPane.showConfirmDialog(this, "陷台ｼ∝求邵ｺ蜉ｱ竏ｪ邵ｺ蜷ｶﾂｰ�ｽ�ｽ,
-					      "陷台ｼ∝求驕抵ｽｺ髫ｱ�ｽ, JOptionPane.YES_NO_OPTION, 
+					+ getId +" and EMPNAME = '"+ getEmpName +"' and DEPTNAME驍ｵ�ｲ�ｽ�ｽ '" + getDeptName +"' and FLAG = 0" );
+				int option = JOptionPane.showConfirmDialog(this, "髯ｷ蜿ｰ�ｼ竏晄ｱるし�ｺ陷会ｽｱ遶擾ｽｪ驍ｵ�ｺ陷ｷ�ｶ�ゑｽｰ�ｽ�ｽ�ｽ�ｽ,
+					      "髯ｷ蜿ｰ�ｼ竏晄ｱるｩ墓慣�ｽ�ｺ鬮ｫ�ｱ�ｽ�ｽ, JOptionPane.YES_NO_OPTION, 
 					      JOptionPane.WARNING_MESSAGE);
 				count = deleteRs;
 				    if (option == JOptionPane.YES_OPTION){
 				    	conn.commit();
-				    	JOptionPane.showMessageDialog(this, deleteRs+"闔会ｽｶ陷台ｼ∝求邵ｺ蜉ｱ竏ｪ邵ｺ蜉ｱ笳�ｸｲ�ｽ);
+				    	JOptionPane.showMessageDialog(this, deleteRs+"髣比ｼ夲ｽｽ�ｶ髯ｷ蜿ｰ�ｼ竏晄ｱるし�ｺ陷会ｽｱ遶擾ｽｪ驍ｵ�ｺ陷会ｽｱ隨ｳ�ｽ�ｸ�ｲ�ｽ�ｽ);
 				    	System.out.print(deleteRs);
 				    //	layout.show(mainPanel, command);
 				      }else if (option == JOptionPane.NO_OPTION){
@@ -313,7 +313,7 @@ public class EmpSystem extends JFrame implements ActionListener {
 			}catch (SQLException e1){
 				System.out.println("SQLException:" + e1.getMessage());
 			}
-		}else if(command.equals("deleteAction")){//陷台ｼ∝求陷�ｽｦ騾�ｿｽ			getId = Integer.parseInt(deleteEmpIdText.getText());
+		}else if(command.equals("deleteAction")){//髯ｷ蜿ｰ�ｼ竏晄ｱる匚�ｽ�ｽ�ｦ鬨ｾ�ｽ�ｿ�ｽ			getId = Integer.parseInt(deleteEmpIdText.getText());
 			getEmpName = deleteEmpNameText.getText();
 			getDeptName = deleteDeptNameText.getText();
 			try{
@@ -321,14 +321,14 @@ public class EmpSystem extends JFrame implements ActionListener {
 				conn.setAutoCommit(false);
 				Statement stmt = conn.createStatement();
 				int deleteRs = stmt.executeUpdate("update java_emp set FLAG = 1 where EMPID = "
-					+ getId +" and EMPNAME = '"+ getEmpName +"' and DEPTNAME邵ｲ�ｽ '" + getDeptName +"' and FLAG = 0" );
-				int option = JOptionPane.showConfirmDialog(this, "陷台ｼ∝求邵ｺ蜉ｱ竏ｪ邵ｺ蜷ｶﾂｰ�ｽ�ｽ,
-					      "陷台ｼ∝求驕抵ｽｺ髫ｱ�ｽ, JOptionPane.YES_NO_OPTION, 
+					+ getId +" and EMPNAME = '"+ getEmpName +"' and DEPTNAME驍ｵ�ｲ�ｽ�ｽ '" + getDeptName +"' and FLAG = 0" );
+				int option = JOptionPane.showConfirmDialog(this, "髯ｷ蜿ｰ�ｼ竏晄ｱるし�ｺ陷会ｽｱ遶擾ｽｪ驍ｵ�ｺ陷ｷ�ｶ�ゑｽｰ�ｽ�ｽ�ｽ�ｽ,
+					      "髯ｷ蜿ｰ�ｼ竏晄ｱるｩ墓慣�ｽ�ｺ鬮ｫ�ｱ�ｽ�ｽ, JOptionPane.YES_NO_OPTION, 
 					      JOptionPane.WARNING_MESSAGE);
 				count = deleteRs;
 				    if (option == JOptionPane.YES_OPTION){
 				    	conn.commit();
-				    	JOptionPane.showMessageDialog(this, deleteRs+"闔会ｽｶ陷台ｼ∝求邵ｺ蜉ｱ竏ｪ邵ｺ蜉ｱ笳�ｸｲ�ｽ);
+				    	JOptionPane.showMessageDialog(this, deleteRs+"髣比ｼ夲ｽｽ�ｶ髯ｷ蜿ｰ�ｼ竏晄ｱるし�ｺ陷会ｽｱ遶擾ｽｪ驍ｵ�ｺ陷会ｽｱ隨ｳ�ｽ�ｸ�ｲ�ｽ�ｽ);
 				    	System.out.print(deleteRs);
 				      }else if (option == JOptionPane.NO_OPTION){
 				      }
