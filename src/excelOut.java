@@ -1,5 +1,10 @@
 //エクセルに出力
 
+//Apache POIをインストールしないと実行できません。
+//「java swing excel 出力」などでググってください。
+//インストールができたら本ソースコードを(C:\eclipse)などにコピーして実行してください。
+//たぶんできる
+
 package excelTest;
 
 import java.io.FileOutputStream;
