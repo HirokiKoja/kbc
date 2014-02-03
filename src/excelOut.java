@@ -1,9 +1,9 @@
-//ƒGƒNƒZƒ‹‚Éo—Í
+//ã‚¨ã‚¯ã‚»ãƒ«ã«å‡ºåŠ›
 
-//Apache POI‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚È‚¢‚ÆÀs‚Å‚«‚Ü‚¹‚ñB
-//ujava swing excel o—Ív‚È‚Ç‚ÅƒOƒO‚Á‚Ä‚­‚¾‚³‚¢B
-//ƒCƒ“ƒXƒg[ƒ‹‚ª‚Å‚«‚½‚ç–{ƒ\[ƒXƒR[ƒh‚ğ(C:\eclipse)‚È‚Ç‚ÉƒRƒs[‚µ‚ÄÀs‚µ‚Ä‚­‚¾‚³‚¢B
-//‚½‚Ô‚ñ‚Å‚«‚é
+//Apache POIã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ãªã„ã¨å®Ÿè¡Œã§ãã¾ã›ã‚“ã€‚
+//ã€Œjava swing excel å‡ºåŠ›ã€ãªã©ã§ã‚°ã‚°ã£ã¦ãã ã•ã„ã€‚
+//ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãŒã§ããŸã‚‰æœ¬ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’(C:\eclipse)ãªã©ã«ã‚³ãƒ”ãƒ¼ã—ã¦å®Ÿè¡Œã—ã¦ãã ã•ã„ã€‚
+//ãŸã¶ã‚“ã§ãã‚‹
 
 package excelTest;
 
@@ -18,33 +18,33 @@ import org.apache.poi.ss.usermodel.Sheet;
 public class excelOut {
 	 public static void main(String[] args){
 		 
-		HSSFWorkbook workbook = new HSSFWorkbook();		//ExcelƒIƒuƒWƒFƒNƒgì¬
-		logOutput("ƒ[ƒNƒuƒbƒNì¬");
+		HSSFWorkbook workbook = new HSSFWorkbook();		//Excelã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆä½œæˆ
+		logOutput("ãƒ¯ãƒ¼ã‚¯ãƒ–ãƒƒã‚¯ä½œæˆ");
 		
-		String[] colName = {"ĞˆõID", "Ğˆõ–¼", "•””Ô†", "•”–¼", "‹‹—¿"};
-		logOutput("o—Í—ñ–¼@ì¬");
+		String[] colName = {"ç¤¾å“¡ID", "ç¤¾å“¡å", "éƒ¨ç½²ç•ªå·", "éƒ¨ç½²å", "çµ¦æ–™"};
+		logOutput("å‡ºåŠ›åˆ—åã€€ä½œæˆ");
 		
-		String[] colTest = {"1101", "Alen", "101", "ŠJ”­", "150000"};
+		String[] colTest = {"1101", "Alen", "101", "é–‹ç™º", "150000"};
 		
-		Sheet sheet = workbook.createSheet("test");		//ƒV[ƒgì¬ ("ƒV[ƒg–¼")
-		logOutput("ƒV[ƒgì¬");
+		Sheet sheet = workbook.createSheet("test");		//ã‚·ãƒ¼ãƒˆä½œæˆ ("ã‚·ãƒ¼ãƒˆå")
+		logOutput("ã‚·ãƒ¼ãƒˆä½œæˆ");
 		
-		Row row1 = sheet.createRow(1);					//sì¬
-		logOutput("o—Ís@ì¬");
+		Row row1 = sheet.createRow(1);					//è¡Œä½œæˆ
+		logOutput("å‡ºåŠ›è¡Œã€€ä½œæˆ");
 		
 		
-		//ƒfƒtƒHƒ‹ƒg—ño—Í
-		int i=0;	//—ñ”Ô†
+		//ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆåˆ—å‡ºåŠ›
+		int i=0;	//åˆ—ç•ªå·
 		for(String celTop: colName){
-			Cell cell1_i = row1.createCell(i);			//ƒZƒ‹ì¬
-			cell1_i.setCellValue(celTop);				//’l‚ğƒZƒbƒg
-			logOutput(celTop+" —ñì¬");
-			logOutput((i+1)+"—ñŠ®—¹");
+			Cell cell1_i = row1.createCell(i);			//ã‚»ãƒ«ä½œæˆ
+			cell1_i.setCellValue(celTop);				//å€¤ã‚’ã‚»ãƒƒãƒˆ
+			logOutput(celTop+" åˆ—ä½œæˆ");
+			logOutput((i+1)+"åˆ—å®Œäº†");
 			i++;
 		}
 		
-		/* ˆÈ‰º‚ªÀƒf[ƒ^‚Ìo—Í
-		 * Šî–{“I‚Éª‚Æ•Ï‚í‚ç‚È‚¢*/
+		/* ä»¥ä¸‹ãŒå®Ÿãƒ‡ãƒ¼ã‚¿ã®å‡ºåŠ›
+		 * åŸºæœ¬çš„ã«â†‘ã¨å¤‰ã‚ã‚‰ãªã„*/
 		i=0;
 		Row rowOutput = sheet.createRow(2);
 		for(String celLineOut: colTest){
@@ -55,23 +55,23 @@ public class excelOut {
 		
 		FileOutputStream out = null;
 		try {
-			out = new FileOutputStream("sample.xls");	//ƒtƒ@ƒCƒ‹ì¬("ƒtƒ@ƒCƒ‹–¼")
-			logOutput("ƒtƒ@ƒCƒ‹ì¬@sample.xls");
+			out = new FileOutputStream("sample.xls");	//ãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆ("ãƒ•ã‚¡ã‚¤ãƒ«å")
+			logOutput("ãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆã€€sample.xls");
 			
-			workbook.write(out);						//ƒtƒ@ƒCƒ‹•Û‘¶
-			logOutput("ƒtƒ@ƒCƒ‹•Û‘¶");
+			workbook.write(out);						//ãƒ•ã‚¡ã‚¤ãƒ«ä¿å­˜
+			logOutput("ãƒ•ã‚¡ã‚¤ãƒ«ä¿å­˜");
 		} catch (IOException e) {
 			System.out.println(e.toString());
 		} finally {
 			try {
-				out.close();							//ƒNƒ[ƒY
+				out.close();							//ã‚¯ãƒ­ãƒ¼ã‚º
 			} catch (IOException e) {
 				System.out.println(e.toString());
 			}
 		}
 	}
 	
-//ƒƒOo—Íƒƒ\ƒbƒh (String o—Í•¶š)
+//ãƒ­ã‚°å‡ºåŠ›ãƒ¡ã‚½ãƒƒãƒ‰ (String å‡ºåŠ›æ–‡å­—)
 	static void logOutput(String other){
 		System.out.println(other);
 	}
