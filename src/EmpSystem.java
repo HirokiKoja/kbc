@@ -25,25 +25,27 @@ public class EmpSystem extends JFrame implements ActionListener {
 	/*oracle*/
 	static Connection conn = null;
 	int flag = 0;
-	int getIdAccess = 0 ,getDeptIdAccess =0,getSalAccess =0, getPassAccess = 0;
-	String getEmpNameAccess = null, getDeptNameAccess = null;
-	int getId = 0,getDeptId =0,getSal =0,getPass = 0;
+	int sqlEmpId = 0 ,sqlDeptId =0,sqlSal =0, sqlPass = 0, sqldeptId =0;
+	String sqlEmpName = null, sqlDeptName = null ;
+	int getEmpId = 0,getDeptId =0,getSal =0,getPass = 0;
 	String getEmpName = null, getDeptName = null;
 	static int count;
 	
-	/*ログインテキスト*/
-	JTextField idText = new JTextField(); 
-//	JTextField passText = new JTextField();
+	/*login*/
+	JTextField empIdText = new JTextField(); 
 	JButton loginButton = new JButton("ログイン"); 
 	
-	JPasswordField passText = new JPasswordField(20);
-	char[] password = passText.getPassword();
+	JPasswordField empPassText = new JPasswordField(20);
+	char[] password = empPassText.getPassword();
 	String pass = new String(password);
 	
-	/*削除テキスト*/
+	/*delete*/
 	JTextField deleteEmpIdText =new JTextField();
 	JTextField deleteEmpNameText = new JTextField();
 	JTextField deleteDeptNameText = new JTextField();
+	
+	/*add*/
+	JTextField addEmpIdText, addEmpNameText, addDeptNameText, addSalText, addEmpPassText;
 	
 	
 	public static void main(String[] args) {
@@ -51,7 +53,7 @@ public class EmpSystem extends JFrame implements ActionListener {
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(200, 150, 640, 480);
-		frame.setTitle("検索なう(ｄ´◔‿ゝ◔‘)");
+		frame.setTitle("検索なう");
 		frame.setVisible(true);
 		frame.setResizable(false);
 	}
@@ -61,25 +63,23 @@ public class EmpSystem extends JFrame implements ActionListener {
 		JPanel loginPanel = new JPanel();
 		loginPanel.setLayout(null);
 
-		JLabel loginTitle = new JLabel("ログイン");
-		JLabel loginId = new JLabel("社員ID");
-		JLabel loginPass = new JLabel("パスワード");
-	//	JTextField idText = new JTextField(8); 
-	//	JTextField passText = new JTextField(8); 
-	//	JButton loginButton = new JButton("ログイン"); 
+		JLabel loginTitleLabel = new JLabel("ログイン");
+		JLabel loginEmpIdLabel = new JLabel("社員ID");
+		JLabel loginPassLabel = new JLabel("パスワード");
 
-		loginPanel.add(loginTitle);
-		loginPanel.add(loginId);
-		loginPanel.add(loginPass);
-		loginPanel.add(idText);
-		loginPanel.add(passText);
+
+		loginPanel.add(loginTitleLabel);
+		loginPanel.add(loginEmpIdLabel);
+		loginPanel.add(loginPassLabel);
+		loginPanel.add(empIdText);
+		loginPanel.add(empPassText);
 		loginPanel.add(loginButton);
 
-		loginTitle.setBounds(300, 25, 160, 50); 
-		loginId.setBounds(100, 125, 100, 30); 
-		loginPass.setBounds(100, 175, 100, 30); 
-		idText.setBounds(300, 125, 200, 30); 
-		passText.setBounds(300, 175, 200, 30); 
+		loginTitleLabel.setBounds(300, 25, 160, 50); 
+		loginEmpIdLabel.setBounds(100, 125, 100, 30); 
+		loginPassLabel.setBounds(100, 175, 100, 30); 
+		empIdText.setBounds(300, 125, 200, 30); 
+		empPassText.setBounds(300, 175, 200, 30); 
 		loginButton.setBounds(300, 300, 200, 50); 
 		
 		loginButton.addActionListener(this);
@@ -165,10 +165,12 @@ public class EmpSystem extends JFrame implements ActionListener {
 		JLabel addEmpNo = new JLabel("社員ID");
 		JLabel addEmpName = new JLabel("社員名");
 		JLabel addDeptName = new JLabel("部署");
-		JTextField addEmpNoText = new JTextField();
-		JTextField addEmpNameText = new JTextField();
-		JTextField addDeptNameText = new JTextField();
-		JTextField addEmpPassText = new JTextField();
+		JLabel addSalLabel = new JLabel("給料");
+		addEmpIdText = new JTextField();
+		addEmpNameText = new JTextField();
+		addDeptNameText = new JTextField();
+		addSalText = new JTextField();
+		addEmpPassText = new JTextField();
 		JButton addButton = new JButton("追加");
 		JButton addTopButton = new JButton("TOP");
 
@@ -177,9 +179,11 @@ public class EmpSystem extends JFrame implements ActionListener {
 		addPanel.add(addEmpName);
 		addPanel.add(addDeptName);
 		addPanel.add(addEmpPass);
-		addPanel.add(addEmpNoText);
+		addPanel.add(addSalLabel);
+		addPanel.add(addEmpIdText);
 		addPanel.add(addEmpNameText);
 		addPanel.add(addDeptNameText);
+		addPanel.add(addSalText);
 		addPanel.add(addEmpPassText);
 		addPanel.add(addButton);
 		addPanel.add(addTopButton);
@@ -188,16 +192,20 @@ public class EmpSystem extends JFrame implements ActionListener {
 		addEmpNo.setBounds(100, 100, 100, 50);
 		addEmpName.setBounds(100, 100, 120, 150);
 		addDeptName.setBounds(100, 100, 140, 250);
-		addEmpPass.setBounds(100, 100, 160, 350);
-		addEmpNoText.setBounds(200, 110, 200, 30);
+		addSalLabel.setBounds(100, 100, 160, 350);
+		addEmpPass.setBounds(100, 100, 180, 450);
+		addEmpIdText.setBounds(200, 110, 200, 30);
 		addEmpNameText.setBounds(200, 160, 200, 30);
 		addDeptNameText.setBounds(200, 210, 200, 30);
-		addEmpPassText.setBounds(200, 260, 200, 30);
-		addButton.setBounds(220, 320, 150, 50);
+		addSalText.setBounds(200, 260, 200, 30);
+		addEmpPassText.setBounds(200, 310, 200, 30);
+		addButton.setBounds(220, 370, 150, 50);
 		addTopButton.setBounds(450, 370, 150, 50);
 
 		addTopButton.addActionListener(this);
 		addTopButton.setActionCommand("top");
+		addButton.addActionListener(this);
+		addButton.setActionCommand("addAction");
 
 		/* 削除 */
 		JPanel deletePanel = new JPanel();
@@ -260,22 +268,22 @@ public class EmpSystem extends JFrame implements ActionListener {
 		
 	}else if(command.equals("top")){//ログイン処理
 			if(flag == 0){
-				getId = Integer.parseInt(idText.getText());
-				getPass = Integer.parseInt(passText.getText());
+				getEmpId = Integer.parseInt(empIdText.getText());
+				getPass = Integer.parseInt(empPassText.getText());
 				try{
 					conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:myorcl","scott","tiger");
 					conn.setAutoCommit(true);
 					Statement stmt = conn.createStatement();
-					ResultSet loginRs = stmt.executeQuery("select * from java_emp where EMPID =　 "+ getId +" and PASSWORD = "+ getPass +" and FLAG =0 " );
+					ResultSet loginRs = stmt.executeQuery("select * from java_emp where EMPID =　 "+ getEmpId +" and PASSWORD = "+ getPass +" and FLAG =0 " );
 					while(loginRs.next()){
-						getIdAccess = loginRs.getInt("EMPID");
-						getPassAccess = loginRs.getInt("PASSWORD");
+						sqlEmpId = loginRs.getInt("EMPID");
+						sqlPass = loginRs.getInt("PASSWORD");
 					}
 					conn.close();
 				}catch (SQLException e1){
 					System.out.println("SQLException:" + e1.getMessage());
 				}
-				if(getId == getIdAccess && getPass == getPassAccess){
+				if(getEmpId == sqlEmpId && getPass == sqlPass){
 					System.out.print("成功");//判定テスト
 					flag ++;
 					layout.show(mainPanel, command);
@@ -285,37 +293,39 @@ public class EmpSystem extends JFrame implements ActionListener {
 			}
 		}else if(command.equals("searchAction")){//検索処理（カドさんが作る場所）
 		////////////////////////////////////////////////////////////////	
-		}else if(command.equals("addAction")){
-			
-
 		}else if(command.equals("addAction")){//追加処理
-			getId = Integer.parseInt(deleteEmpIdText.getText());
-			getEmpName = deleteEmpNameText.getText();
-			getDeptName = deleteDeptNameText.getText();
-			System.out.print("テスト："+getId +getEmpName + getDeptName);
+			System.out.print("tuika");
+			getEmpId = Integer.parseInt(addEmpIdText.getText());
+			getEmpName = addEmpNameText.getText();
+			getDeptName = addDeptNameText.getText();
+			getSal = Integer.parseInt(addSalText.getText());
+			getPass = Integer.parseInt(addEmpPassText.getText());
 			try{
 				conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:myorcl","scott","tiger");
 				conn.setAutoCommit(false);
 				Statement stmt = conn.createStatement();
-				int deleteRs = stmt.executeUpdate("update java_emp set FLAG = 1 where EMPID = "
-					+ getId +" and EMPNAME = '"+ getEmpName +"' and DEPTNAME　= '" + getDeptName +"' and FLAG = 0" );
-				int option = JOptionPane.showConfirmDialog(this, "削除しますか？",
-					      "削除確認", JOptionPane.YES_NO_OPTION, 
+				ResultSet deptRs = stmt.executeQuery("select * from java_dept where deptname =　 '"+getDeptName+"'" );
+				while(deptRs.next()){
+					sqlDeptId = deptRs.getInt("DEPTID");
+				}
+				int addRs = stmt.executeUpdate("insert into java_emp(empid,empname,deptid,deptname,sal,password,flag)"
+						+ "values("+getEmpId+",'"+getEmpName+"',"+sqlDeptId+",'"+getDeptName+"',"+getSal+","+getPass+",0)");
+				int option = JOptionPane.showConfirmDialog(this, addRs+"件追加しますか？",
+					      "追加確認", JOptionPane.YES_NO_OPTION, 
 					      JOptionPane.WARNING_MESSAGE);
-				count = deleteRs;
+				count = addRs;
 				    if (option == JOptionPane.YES_OPTION){
 				    	conn.commit();
-				    	JOptionPane.showMessageDialog(this, deleteRs+"件削除しました。");
-				    	System.out.print(deleteRs);
-				    //	layout.show(mainPanel, command);
+				    	JOptionPane.showMessageDialog(this, addRs+"件追加。");
 				      }else if (option == JOptionPane.NO_OPTION){
+				    	conn.rollback();
 				      }
 				    conn.close();
 			}catch (SQLException e1){
 				System.out.println("SQLException:" + e1.getMessage());
 			}
 		}else if(command.equals("deleteAction")){//削除処理
-			getId = Integer.parseInt(deleteEmpIdText.getText());
+			getEmpId = Integer.parseInt(deleteEmpIdText.getText());
 			getEmpName = deleteEmpNameText.getText();
 			getDeptName = deleteDeptNameText.getText();
 			try{
@@ -323,7 +333,7 @@ public class EmpSystem extends JFrame implements ActionListener {
 				conn.setAutoCommit(false);
 				Statement stmt = conn.createStatement();
 				int deleteRs = stmt.executeUpdate("update java_emp set FLAG = 1 where EMPID = "
-					+ getId +" and EMPNAME = '"+ getEmpName +"' and DEPTNAME　= '" + getDeptName +"' and FLAG = 0" );
+					+ getEmpId +" and EMPNAME = '"+ getEmpName +"' and DEPTNAME　= '" + getDeptName +"' and FLAG = 0" );
 				int option = JOptionPane.showConfirmDialog(this, "削除しますか？",
 					      "削除確認", JOptionPane.YES_NO_OPTION, 
 					      JOptionPane.WARNING_MESSAGE);
@@ -333,6 +343,7 @@ public class EmpSystem extends JFrame implements ActionListener {
 				    	JOptionPane.showMessageDialog(this, deleteRs+"件削除しました。");
 				    	System.out.print(deleteRs);
 				      }else if (option == JOptionPane.NO_OPTION){
+				    	conn.rollback();
 				      }
 				    conn.close();
 			}catch (SQLException e1){
