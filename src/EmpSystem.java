@@ -1,7 +1,8 @@
-/*制作者：古謝景貴
- *制作日：１２月１０日
+/*
+制作老E��古謝景貴
+ *制作日�E�１２月�E�０日
  * 
- * 社員システム本体
+ * 社員シスチE��本佁E
  */
 
 import javax.swing.*;
@@ -53,7 +54,7 @@ public class EmpSystem extends JFrame implements ActionListener {
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(200, 150, 640, 480);
-		frame.setTitle("検索なう");
+		frame.setTitle("検索なぁE);
 		frame.setVisible(true);
 		frame.setResizable(false);
 	}
@@ -65,7 +66,7 @@ public class EmpSystem extends JFrame implements ActionListener {
 
 		JLabel loginTitleLabel = new JLabel("ログイン");
 		JLabel loginEmpIdLabel = new JLabel("社員ID");
-		JLabel loginPassLabel = new JLabel("パスワード");
+		JLabel loginPassLabel = new JLabel("パスワーチE);
 
 
 		loginPanel.add(loginTitleLabel);
@@ -117,7 +118,7 @@ public class EmpSystem extends JFrame implements ActionListener {
 
 		JLabel searchTitle = new JLabel("検索");
 		JLabel searchEmpNo = new JLabel("社員ID");
-		JLabel searchEmpName = new JLabel("社員名");
+		JLabel searchEmpName = new JLabel("社員吁E);
 		JLabel searchDeptName = new JLabel("部署");
 		JTextField searchEmpNoText = new JTextField();
 		JTextField searchEmpNameText = new JTextField();
@@ -161,11 +162,11 @@ public class EmpSystem extends JFrame implements ActionListener {
 		addPanel.setLayout(null);
 
 		JLabel addTitle = new JLabel("追加");
-		JLabel addEmpPass = new JLabel("パスワード");
+		JLabel addEmpPass = new JLabel("パスワーチE);
 		JLabel addEmpNo = new JLabel("社員ID");
-		JLabel addEmpName = new JLabel("社員名");
+		JLabel addEmpName = new JLabel("社員吁E);
 		JLabel addDeptName = new JLabel("部署");
-		JLabel addSalLabel = new JLabel("給料");
+		JLabel addSalLabel = new JLabel("給斁E);
 		addEmpIdText = new JTextField();
 		addEmpNameText = new JTextField();
 		addDeptNameText = new JTextField();
@@ -213,7 +214,7 @@ public class EmpSystem extends JFrame implements ActionListener {
 
 		JLabel deleteTitle = new JLabel("削除");
 		JLabel deleteEmpNo = new JLabel("社員ID");
-		JLabel deleteEmpName = new JLabel("社員名");
+		JLabel deleteEmpName = new JLabel("社員吁E);
 		JLabel deleteDeptName = new JLabel("部署");
 		deleteEmpIdText = new JTextField();
 		deleteEmpNameText = new JTextField();
@@ -266,7 +267,7 @@ public class EmpSystem extends JFrame implements ActionListener {
 	if(command.equals("search") || command.equals("add") || command.equals("delete")){
 		layout.show(mainPanel, command);
 		
-	}else if(command.equals("top")){//ログイン処理
+	}else if(command.equals("top")){//ログイン処琁E
 			if(flag == 0){
 				getEmpId = Integer.parseInt(empIdText.getText());
 				getPass = Integer.parseInt(empPassText.getText());
@@ -284,16 +285,16 @@ public class EmpSystem extends JFrame implements ActionListener {
 					System.out.println("SQLException:" + e1.getMessage());
 				}
 				if(getEmpId == sqlEmpId && getPass == sqlPass){
-					System.out.print("成功");//判定テスト
+					System.out.print("成功");//判定テスチE
 					flag ++;
 					layout.show(mainPanel, command);
 				}
 			}if(flag == 1){
 				layout.show(mainPanel, command);
 			}
-		}else if(command.equals("searchAction")){//検索処理（カドさんが作る場所）
+		}else if(command.equals("searchAction")){//検索処琁E��カドさんが作る場所�E�E
 		////////////////////////////////////////////////////////////////	
-		}else if(command.equals("addAction")){//追加処理
+		}else if(command.equals("addAction")){//追加処琁E
 			System.out.print("tuika");
 			getEmpId = Integer.parseInt(addEmpIdText.getText());
 			getEmpName = addEmpNameText.getText();
@@ -310,13 +311,13 @@ public class EmpSystem extends JFrame implements ActionListener {
 				}
 				int addRs = stmt.executeUpdate("insert into java_emp(empid,empname,deptid,deptname,sal,password,flag)"
 						+ "values("+getEmpId+",'"+getEmpName+"',"+sqlDeptId+",'"+getDeptName+"',"+getSal+","+getPass+",0)");
-				int option = JOptionPane.showConfirmDialog(this, addRs+"件追加しますか？",
-					      "追加確認", JOptionPane.YES_NO_OPTION, 
+				int option = JOptionPane.showConfirmDialog(this, addRs+"件追加しますか�E�E,
+					      "追加確誁E, JOptionPane.YES_NO_OPTION, 
 					      JOptionPane.WARNING_MESSAGE);
 				count = addRs;
 				    if (option == JOptionPane.YES_OPTION){
 				    	conn.commit();
-				    	JOptionPane.showMessageDialog(this, addRs+"件追加。");
+				    	JOptionPane.showMessageDialog(this, addRs+"件追加、E);
 				      }else if (option == JOptionPane.NO_OPTION){
 				    	conn.rollback();
 				      }
@@ -324,7 +325,7 @@ public class EmpSystem extends JFrame implements ActionListener {
 			}catch (SQLException e1){
 				System.out.println("SQLException:" + e1.getMessage());
 			}
-		}else if(command.equals("deleteAction")){//削除処理
+		}else if(command.equals("deleteAction")){//削除処琁E
 			getEmpId = Integer.parseInt(deleteEmpIdText.getText());
 			getEmpName = deleteEmpNameText.getText();
 			getDeptName = deleteDeptNameText.getText();
@@ -334,13 +335,13 @@ public class EmpSystem extends JFrame implements ActionListener {
 				Statement stmt = conn.createStatement();
 				int deleteRs = stmt.executeUpdate("update java_emp set FLAG = 1 where EMPID = "
 					+ getEmpId +" and EMPNAME = '"+ getEmpName +"' and DEPTNAME　= '" + getDeptName +"' and FLAG = 0" );
-				int option = JOptionPane.showConfirmDialog(this, "削除しますか？",
-					      "削除確認", JOptionPane.YES_NO_OPTION, 
+				int option = JOptionPane.showConfirmDialog(this, "削除しますか�E�E,
+					      "削除確誁E, JOptionPane.YES_NO_OPTION, 
 					      JOptionPane.WARNING_MESSAGE);
 				count = deleteRs;
 				    if (option == JOptionPane.YES_OPTION){
 				    	conn.commit();
-				    	JOptionPane.showMessageDialog(this, deleteRs+"件削除しました。");
+				    	JOptionPane.showMessageDialog(this, deleteRs+"件削除しました、E);
 				    	System.out.print(deleteRs);
 				      }else if (option == JOptionPane.NO_OPTION){
 				    	conn.rollback();
